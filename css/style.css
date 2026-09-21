@@ -13,50 +13,14 @@
   --ring:#00562E;
   --amber:#C8103C;
   --amber-ink:#FFFFFF;
+  --amber-strong:#A50D31;
+  --on-brand:#FFFFFF;
   --violet:#46287F;
   --lilac:#C3B1E1;
   --show-color:block;
   --show-white:none;
   --display:"Poppins",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --text:"Poppins",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#08130E;
-    --surface:#0E2118;
-    --tint:#132A1E;
-    --ink:#E9F2EC;
-    --muted:#A9C2B5;
-    --line:#21402F;
-    --brand:#5CC492;
-    --band:#003D20;
-    --band-2:#012A16;
-    --ring:#3FBF8A;
-    --amber:#FF5478;
-    --amber-ink:#FFFFFF;
-    --violet:#B9A6E8;
-    --lilac:#C3B1E1;
-    --show-color:none;
-    --show-white:block;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#08130E;
-  --surface:#0E2118;
-  --tint:#132A1E;
-  --ink:#E9F2EC;
-  --muted:#A9C2B5;
-  --line:#21402F;
-  --brand:#5CC492;
-  --band:#003D20;
-  --band-2:#012A16;
-  --ring:#3FBF8A;
-  --amber:#FF5478;
-  --amber-ink:#FFFFFF;
-  --violet:#B9A6E8;
-  --lilac:#C3B1E1;
-  --show-color:none;
-  --show-white:block;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -79,10 +43,10 @@ h1,h2,h3,p{margin:0}
 /* Buttons */
 .btn{display:inline-block;font-family:var(--text);font-weight:600;font-size:1rem;text-decoration:none;padding:.9rem 1.6rem;border:2px solid transparent;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:background-color .18s,color .18s;cursor:pointer}
 .btn-amber{background:var(--amber);color:var(--amber-ink)}
-.btn-amber:hover{background:#A50D31}
+.btn-amber:hover{background:var(--amber-strong)}
 .btn-line{background:transparent;color:var(--on-band);border-color:var(--on-band-muted);clip-path:none}
 .btn-line:hover{background:rgba(255,255,255,.1)}
-.btn-solid{background:var(--brand);color:var(--on-band)}
+.btn-solid{background:var(--brand);color:var(--on-brand)}
 .btn-solid:hover{background:var(--band-2);color:var(--on-band)}
 
 /* Nav */
@@ -99,17 +63,6 @@ h1,h2,h3,p{margin:0}
 .nav-links .btn{color:var(--on-band);background:var(--band);padding:.6rem 1.2rem;font-size:.95rem}
 .nav-links .btn:hover{background:var(--band-2);color:var(--on-band)}
 .menu-btn{display:none;background:none;border:2px solid var(--line);color:var(--ink);font:inherit;font-weight:600;padding:.45rem .9rem;cursor:pointer}
-.nav-right{display:flex;align-items:center;gap:1.4rem}
-.theme-toggle{display:grid;place-items:center;width:40px;height:40px;flex:none;border:2px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .2s,color .2s,background .2s}
-.theme-toggle:hover{border-color:var(--brand);color:var(--brand)}
-.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.theme-toggle .t-moon{display:none}
-:root[data-theme="dark"] .theme-toggle .t-sun{display:none}
-:root[data-theme="dark"] .theme-toggle .t-moon{display:block}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .theme-toggle .t-sun{display:none}
-  :root:not([data-theme="light"]) .theme-toggle .t-moon{display:block}
-}
 
 /* Page banner */
 .page-banner{background:var(--band);color:var(--on-band);padding:clamp(3.5rem,8vw,6rem) 0;clip-path:polygon(0 0,100% 0,100% calc(100% - 32px),0 100%);margin-bottom:2rem}
@@ -145,7 +98,7 @@ h1,h2,h3,p{margin:0}
 .team-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,61,32,.10)}
 .team-avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 1.1rem;overflow:hidden;border:3px solid var(--tint);display:grid;place-items:center;background:var(--tint);color:var(--brand);font-family:var(--display);font-weight:800;font-size:1.9rem}
 .team-avatar img{width:100%;height:100%;object-fit:cover}
-.team-card .team-role{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--on-band);background:var(--brand);padding:.25rem .7rem;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);margin-bottom:.6rem}
+.team-card .team-role{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--on-brand);background:var(--brand);padding:.25rem .7rem;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);margin-bottom:.6rem}
 .team-card h4{font-family:var(--display);font-size:1.15rem;margin-bottom:.15rem}
 .team-card .team-name{font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--ink)}
 
@@ -180,8 +133,8 @@ h1,h2,h3,p{margin:0}
 .form-card-head h3{margin:0}
 .form-card-head p{color:var(--muted);font-size:.9rem;margin-top:.15rem}
 .btn-block{width:100%}
-.btn-grad{background:linear-gradient(135deg,var(--brand),var(--band-2));color:var(--on-band)}
-.btn-grad:hover{background:linear-gradient(135deg,var(--band-2),var(--brand));color:var(--on-band)}
+.btn-grad{background:linear-gradient(135deg,var(--band),var(--band-2));color:var(--on-band)}
+.btn-grad:hover{background:linear-gradient(135deg,var(--band-2),var(--band));color:var(--on-band)}
 
 /* Contact info */
 .contact-line{margin-bottom:.9rem}
@@ -204,7 +157,7 @@ h1,h2,h3,p{margin:0}
 .contact-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.8rem}
 .contact-social{display:flex;gap:.8rem;margin-top:1.6rem}
 .contact-social a{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--tint);color:var(--brand);transition:all .25s var(--ease, ease)}
-.contact-social a:hover{background:var(--brand);color:var(--on-band);transform:translateY(-3px)}
+.contact-social a:hover{background:var(--brand);color:var(--on-brand);transform:translateY(-3px)}
 .contact-social svg{width:18px;height:18px;fill:currentColor}
 .contact-hours{background:var(--band);color:var(--on-band);border-radius:18px;padding:2rem;position:sticky;top:100px}
 .contact-hours .c-icon{background:rgba(255,255,255,.12);color:var(--on-band);margin-bottom:1.2rem}

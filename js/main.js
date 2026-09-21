@@ -17,29 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // ---- Theme toggle ----
-  var themeBtn = document.getElementById("themeToggle");
-  if (themeBtn) {
-    var root = document.documentElement;
-    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
-    var isDark = function () {
-      var attr = root.getAttribute("data-theme");
-      if (attr) return attr === "dark";
-      return !!(mq && mq.matches);
-    };
-    var sync = function () { themeBtn.setAttribute("aria-pressed", isDark() ? "true" : "false"); };
-    sync();
-    themeBtn.addEventListener("click", function () {
-      var next = isDark() ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
-      sync();
-    });
-    if (mq && mq.addEventListener) {
-      mq.addEventListener("change", function () { if (!root.getAttribute("data-theme")) sync(); });
-    }
-  }
-
   // ---- Scroll reveal ----
   var revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-zoom");
   if (revealEls.length && "IntersectionObserver" in window) {
